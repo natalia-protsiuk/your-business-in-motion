@@ -30,7 +30,7 @@ const subscriptionPlans: Plan[] = [
   },
   {
     name: "Business Boost",
-    price: "4,997 SEK",
+    price: "3,990 SEK",
     description: "Ideal for growing businesses and content creators",
     features: [
       { text: "2 videos (vertical or horizontal)", included: true },
