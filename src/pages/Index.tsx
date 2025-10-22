@@ -1,11 +1,10 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import SubscriptionPlans from "@/components/SubscriptionPlans";
-import Portfolio from "@/components/Portfolio";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import SubscriptionPlans from '@/components/SubscriptionPlans';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   // Smooth scroll to anchor links
@@ -13,24 +12,24 @@ const Index = () => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLAnchorElement;
       if (
-        target.tagName === "A" &&
-        target.getAttribute("href")?.startsWith("#")
+        target.tagName === 'A' &&
+        target.getAttribute('href')?.startsWith('#')
       ) {
-        const id = target.getAttribute("href")?.substring(1);
+        const id = target.getAttribute('href')?.substring(1);
         if (!id) return;
 
         const element = document.getElementById(id);
         if (element) {
           e.preventDefault();
           element.scrollIntoView({
-            behavior: "smooth",
+            behavior: 'smooth',
           });
         }
       }
     };
 
-    document.addEventListener("click", handleAnchorClick);
-    return () => document.removeEventListener("click", handleAnchorClick);
+    document.addEventListener('click', handleAnchorClick);
+    return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
   // Stagger animation for elements as they come into view
@@ -40,7 +39,7 @@ const Index = () => {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.classList.add("stagger-visible");
+              entry.target.classList.add('stagger-visible');
             }, 100 * index);
             observer.unobserve(entry.target);
           }
@@ -49,7 +48,7 @@ const Index = () => {
       { threshold: 0.1 }
     );
 
-    document.querySelectorAll(".stagger-item").forEach((item) => {
+    document.querySelectorAll('.stagger-item').forEach((item) => {
       observer.observe(item);
     });
 
